@@ -46,7 +46,8 @@ sensors, the final dimension contains data from all channels.
 2) KD Tree \
 #include "kdtree.typ"
 
-
+= Model Evaluation
+#include "md_eval.typ"
 
 
 #bibliography("references.bib")
