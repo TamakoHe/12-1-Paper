@@ -32,25 +32,42 @@ Given that practical problems often involve numerous complex factors, the first 
 - *Assumption*: The data from the sensors is accurate enough to model the magnetic field.
 - *Justification*: The amount of the sensors is large and for the geomagnetic data is nearly consistent.
 
-= Model Establishment
-== Data processing 
+= Data processing 
 To speed up data I/O, we first combine all the sensor data into a dictionary format stored in JSON file.
 Then, the data is rearranged as a matrix, its dimension is the time stamps, the second dimension represents every
 sensors, the final dimension contains data from all channels. 
-=== Model for problem 1 & 2 
-1) Differential matrix\
+= Model for problem 1 & 2 
+== Problem analysis
+Problem 1 and 2 required finding a variation from a sensor such that the difference 
+of this value and data from other sensors is the minimum. To evaluate the difference, 
+we utilized the mean-squared error(MSE) between the selected data and other sensors'value in the same time point.
+$ "MSE"=1/N sum_((x_i,y_i,z_i) in P_t) [(x_i-x_t)^2+(y_i-y_t)^2+(z_i-z_t)^2] $
+By minimizing the MSE, we can find the most representative data from all sensors in a specific time according to 
+our second assumption. In other word, the task is for every time stamp, to select a sample for all sensors whose
+MSE with data of other sensors is the smalseness. Taking no account of that the targeted value 
+must be selected from an existing data and only consider one channel. The target function is 
+$ S=sum (x_i-x_t)^2 $
+Deriving the partial differential to $x_t$
+$ P=(partial S)/(partial x_t)=sum 2(x_i-x_t) $
+Let $P=0$, $x_t=1/N sum x_i$ which is the mean of all data
+meaning that the ideal value is the mass of 
+center of all data. To obtain the optimized choices, it is required to 
+find the existing point that is closest to the mass of center at every time.
+== Differential matrix\
 #include "dim.typ"
 
 
 \
-2) KD Tree \
+== KD Tree \
 #include "kdtree.typ"
-
+= Model for problem 3 
+== Problem analysis
+== Heuristic Filtering Based on Nearest Neighbor Algorithm(HFBNNA)
 = Model Evaluation
 #include "md_eval.typ"
 
 
-#bibliography("references.bib")
+#bibliography("references.bib", full: true)
 
 #pagebreak()
 

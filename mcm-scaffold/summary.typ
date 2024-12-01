@@ -1,4 +1,4 @@
-This study investigates the data of the geomagnetic monitoring sensors  through *matrix* approach, *KD Tree(KDT)* model and *Heuristic Filtering Based on Nearest Neighbor Algorithm(HFBNNA)*. By analyzing data from all sensors in specific range of time, we address three key questions:
+This study investigates the data of the geomagnetic monitoring sensors  through *Differential Matrix* approach, *KD Tree(KDT)* model and *Heuristic Filtering Based on Nearest Neighbor Algorithm(HFBNNA)*. By analyzing data from all sensors in specific range of time, we address three key questions:
 
 *Most Representative Data In 4 hours(Problem 1):*\
 We introduce a matrix approach to accurately calculate the difference between the measured data and the initial data of each sensor. We further utilize the calculations in the difference matrix to find the most typical value for each time point in the given 4 hours.
@@ -8,5 +8,6 @@ We use the identical approach concerning matrix in problem 1. However, the high 
 
 *Signal Variation From Specific Object. (Problem 3):*\
 
-*Our findings highlight that xxxx*
+*Our findings highlight that:*\
+We can solve some problems base on established mathematics model. For example. Filter out the effect of noise on the magnetic field. Measure magnetic field of certain object.Analyze factors causing geomagnetic field change.Predict the occurrence of natural disasters and take appropriate measures. Learn about the movement of the liquid core, and between the outer core and the mantle interaction.
 
